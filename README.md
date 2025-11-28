@@ -76,7 +76,7 @@ The script trains the model for 200 epochs, saving checkpoints every 20 epochs i
 
 ### 3. Documentation
 
-[![Docs](https://img.shields.io/badge/Sphinx-Documentation-blue?style=plastic)](https://nunotaboada.github.io/MLDrivableAreaDetection/)
+[![Docs](https://img.shields.io/badge/Sphinx-Documentation-blue?style=plastic)](https://nunotaboada.github.io/MLObjectDetection/)
 
 Comprehensive documentation for the project is generated using Sphinx, covering all modules, including model.py, dataset.py, and train.py. The documentation is available as HTML and includes an index that links to all modules and reports.
 Requirements
