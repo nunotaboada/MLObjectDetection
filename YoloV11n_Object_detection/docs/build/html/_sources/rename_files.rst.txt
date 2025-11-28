@@ -1,0 +1,7 @@
+rename\_files module
+====================
+
+.. automodule:: rename_files
+   :members:
+   :undoc-members:
+   :show-inheritance:

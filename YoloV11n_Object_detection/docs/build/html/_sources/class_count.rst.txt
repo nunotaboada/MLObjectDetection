@@ -1,0 +1,7 @@
+class\_count module
+===================
+
+.. automodule:: class_count
+   :members:
+   :undoc-members:
+   :show-inheritance:

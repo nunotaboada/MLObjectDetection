@@ -1,0 +1,23 @@
+.. Object Detection with YoloV11n documentation master file, created by
+   sphinx-quickstart on Tue Aug 26 16:39:40 2025.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Object Detection with YoloV11n documentation
+============================================
+
+.. Add your content using ``reStructuredText`` syntax. See the
+.. `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
+.. documentation for details.
+
+This project delivers a deep learning-based solution for object detection, tailored for autonomous driving applications using the YOLOv11n model. It includes utilities for dataset augmentation, label validation, and training a lightweight YOLOv11 nano model to detect objects in images with high efficiency. Implemented by `Team07 <https://github.com/orgs/SEAME-pt/teams/team07>`_
+
+	For more details, explore the following sections:
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   modules
+   reports

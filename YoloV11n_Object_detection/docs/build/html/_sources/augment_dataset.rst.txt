@@ -1,0 +1,7 @@
+augment\_dataset module
+=======================
+
+.. automodule:: augment_dataset
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,17 @@
+Modules
+=======
+
+
+This section provides an overview of the main modules in the project.  
+Each module is documented with its classes, functions, and usage details,  
+serving as a reference for understanding and extending the codebase.
+
+
+.. toctree::
+   :maxdepth: 4
+
+   augment_dataset
+   class_count
+   rename_files
+   check_labels
+   train

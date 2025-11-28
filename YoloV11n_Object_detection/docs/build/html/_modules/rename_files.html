@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rename_files &mdash; Object Detection  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Object Detection
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports.html">Reports</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Object Detection</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">rename_files</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for rename_files</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<div class="viewcode-block" id="rename_image_label_pairs">
+<a class="viewcode-back" href="../rename_files.html#rename_files.rename_image_label_pairs">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rename_image_label_pairs</span><span class="p">(</span><span class="n">image_dir</span><span class="p">,</span> <span class="n">label_dir</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Rename pairs of image and label files to a standardized format.</span>
+
+<span class="sd">    Matches image and label files based on their base names (without extensions), renames them to a</span>
+<span class="sd">    consistent format (e.g., image00001.jpg and image00001.txt), and reports any mismatches.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        image_dir (str): Path to the directory containing image files.</span>
+<span class="sd">        label_dir (str): Path to the directory containing label files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># List all files in the image and label directories</span>
+    <span class="n">image_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">image_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_dir</span><span class="p">,</span> <span class="n">f</span><span class="p">))]</span>
+    <span class="n">label_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">label_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">label_dir</span><span class="p">,</span> <span class="n">f</span><span class="p">))]</span>
+    
+    <span class="c1"># Filter files by valid image and label extensions</span>
+    <span class="n">image_extensions</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;.jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;.png&#39;</span><span class="p">,</span> <span class="s1">&#39;.gif&#39;</span><span class="p">,</span> <span class="s1">&#39;.bmp&#39;</span><span class="p">)</span>
+    <span class="n">image_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">image_files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">image_extensions</span><span class="p">)]</span>
+    <span class="n">label_extensions</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.txt&#39;</span><span class="p">,)</span>
+    <span class="n">label_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">label_files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">label_extensions</span><span class="p">)]</span>
+    
+    <span class="c1"># Sort files to ensure consistent ordering</span>
+    <span class="n">image_files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">label_files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    
+    <span class="c1"># Create dictionaries mapping base names (without extensions) to full filenames</span>
+    <span class="n">image_basenames</span> <span class="o">=</span> <span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">image_files</span><span class="p">}</span>
+    <span class="n">label_basenames</span> <span class="o">=</span> <span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">label_files</span><span class="p">}</span>
+    
+    <span class="c1"># Find matching image-label pairs</span>
+    <span class="n">paired_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">base_name</span> <span class="ow">in</span> <span class="n">image_basenames</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">base_name</span> <span class="ow">in</span> <span class="n">label_basenames</span><span class="p">:</span>
+            <span class="n">paired_files</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">image_basenames</span><span class="p">[</span><span class="n">base_name</span><span class="p">],</span> <span class="n">label_basenames</span><span class="p">[</span><span class="n">base_name</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: Image </span><span class="si">{</span><span class="n">image_basenames</span><span class="p">[</span><span class="n">base_name</span><span class="p">]</span><span class="si">}</span><span class="s2"> has no corresponding .txt file.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Check for label files without corresponding images</span>
+    <span class="k">for</span> <span class="n">base_name</span> <span class="ow">in</span> <span class="n">label_basenames</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">base_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">image_basenames</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: Label file </span><span class="si">{</span><span class="n">label_basenames</span><span class="p">[</span><span class="n">base_name</span><span class="p">]</span><span class="si">}</span><span class="s2"> has no corresponding image.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Rename matched image-label pairs to a standardized format</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">image_name</span><span class="p">,</span> <span class="n">label_name</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paired_files</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># Get the image file extension</span>
+        <span class="n">image_extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">image_name</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># Create new base name with 5-digit padding (e.g., image00001)</span>
+        <span class="n">new_name_base</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;image</span><span class="si">{</span><span class="n">index</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">new_image_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">new_name_base</span><span class="si">}{</span><span class="n">image_extension</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">new_label_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">new_name_base</span><span class="si">}</span><span class="s2">.txt&quot;</span>
+        
+        <span class="c1"># Construct full file paths</span>
+        <span class="n">old_image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_dir</span><span class="p">,</span> <span class="n">image_name</span><span class="p">)</span>
+        <span class="n">new_image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_dir</span><span class="p">,</span> <span class="n">new_image_name</span><span class="p">)</span>
+        <span class="n">old_label_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">label_dir</span><span class="p">,</span> <span class="n">label_name</span><span class="p">)</span>
+        <span class="n">new_label_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">label_dir</span><span class="p">,</span> <span class="n">new_label_name</span><span class="p">)</span>
+        
+        <span class="c1"># Rename the image file</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">old_image_path</span><span class="p">,</span> <span class="n">new_image_path</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Renamed: </span><span class="si">{</span><span class="n">image_name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">new_image_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error renaming image </span><span class="si">{</span><span class="n">image_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>  <span class="c1"># Continue to next pair even if image renaming fails</span>
+        
+        <span class="c1"># Rename the label file</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">old_label_path</span><span class="p">,</span> <span class="n">new_label_path</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Renamed: </span><span class="si">{</span><span class="n">label_name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">new_label_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error renaming label </span><span class="si">{</span><span class="n">label_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Report the total number of renamed pairs</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total pairs renamed: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">paired_files</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Entry point for running the file renaming script.</span>
+
+<span class="sd">    Renames image and label file pairs in the specified directories to a standardized format.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        image_dir (str): Path to the directory containing validation images.</span>
+<span class="sd">        label_dir (str): Path to the directory containing validation labels.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Specify directories for validation images and labels</span>
+    <span class="n">rename_image_label_pairs</span><span class="p">(</span><span class="s2">&quot;dataset/valid/images&quot;</span><span class="p">,</span> <span class="s2">&quot;dataset/valid/labels&quot;</span><span class="p">)</span>
+    <span class="c1"># Optionally, specify directories for training images and labels (commented out)</span>
+    <span class="c1"># rename_image_label_pairs(&quot;dataset/train/images&quot;, &quot;dataset/train/labels&quot;)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, SEAME Porto-Portugal Team07.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

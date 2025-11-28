@@ -1,0 +1,7 @@
+check\_labels module
+====================
+
+.. automodule:: check_labels
+   :members:
+   :undoc-members:
+   :show-inheritance:
